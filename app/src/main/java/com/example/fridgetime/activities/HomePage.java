@@ -34,12 +34,14 @@ public class HomePage extends AppCompatActivity {
        switch (jsonObject.getInt("success")){
            case 0:
                Log.d("errorrr", "ca ne marche pas");
+               break;
            case 1:
                //Destruction de  les valeurs stockées dans les sharedPrefs.
                sharedPreferences.edit().clear().apply();
                //Retour sur la page Register et login.
                Intent intent = new Intent(this, RegisterLogin.class);
                startActivity(intent);
+               break;
        }
 
 
