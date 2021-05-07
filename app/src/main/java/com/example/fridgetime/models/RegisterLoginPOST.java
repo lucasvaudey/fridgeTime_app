@@ -13,7 +13,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 public class RegisterLoginPOST {
-    private static final String REQUEST_URL = "http://192.168.1.67/fridgetime/login-register.php";
+    private static final String REQUEST_URL = "http://192.168.1.25/~lucas/fridgeTime_serv/login-register.php";
     private final JSONParser jsonParser = new JSONParser();
     private JSONObject json = null;
 

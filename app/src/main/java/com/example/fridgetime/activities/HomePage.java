@@ -19,7 +19,7 @@ public class HomePage extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
         isAuthGET = new IsAuthGET();
         try {
-            JSONObject json = isAuthGET.getSession().get();
+            JSONObject json = isAuthGET.getSession(getApplicationContext()).get();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {

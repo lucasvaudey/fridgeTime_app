@@ -1,6 +1,8 @@
 package com.example.fridgetime.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.fridgetime.models.IsAuthGET;
@@ -11,6 +13,7 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -28,6 +31,7 @@ public class RegisterLogin extends AppCompatActivity {
     private EditText email;
     private EditText username;
     private EditText password;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,7 @@ public class RegisterLogin extends AppCompatActivity {
         username = findViewById(R.id.username_edit);
         password = findViewById(R.id.password_edit);
         registerLoginPOST = new RegisterLoginPOST();
+        sharedPreferences = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
     }
 
     public void register(View view) throws ExecutionException, InterruptedException, JSONException {
@@ -65,6 +70,11 @@ public class RegisterLogin extends AppCompatActivity {
                 break;
             case 1:
                 Intent intent = new Intent(this, HomePage.class);
+                sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("sessionID", jsonResponse.getString("sessionID"));
+                editor.apply();
+                Log.d("tag", "on a bien mis" + jsonResponse.getString("sessionID") + sharedPreferences.getString("sessionID", null));
                 startActivity(intent);
                 break;
         }
