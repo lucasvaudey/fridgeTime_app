@@ -15,14 +15,22 @@ public class Deconnect {
     private static final JSONParser jsonParser = new JSONParser();
     private JSONObject response;
     private static final String REQUEST_URL = "http://192.168.1.25/~lucas/fridgeTime_serv/deconnect.php";
+    private IsAuth isAuth;
 
     public Future<JSONObject> deconnexion(String sessionID) {
-        ExecutorService executorService = Executors.newSingleThreadExecutor();
-        return executorService.submit(() -> {
-            ArrayList<BasicNameValuePair> params = new ArrayList<>();
-            params.add(new BasicNameValuePair("disconnect", sessionID));
-            response = jsonParser.makeHttpRequest(REQUEST_URL, "POST", params);
-            return response;
-        });
+        isAuth = new IsAuth();
+            ExecutorService executorService = Executors.newSingleThreadExecutor();
+            return executorService.submit(() -> {
+                if(isAuth.isInternetAvailable()) {
+                    ArrayList<BasicNameValuePair> params = new ArrayList<>();
+                    params.add(new BasicNameValuePair("disconnect", sessionID));
+                    response = jsonParser.makeHttpRequest(REQUEST_URL, "POST", params);
+                    return response;
+                }else {
+                    response = new JSONObject();
+                    response.put("success", 0);
+                    return response;
+                }
+            });
     }
 }

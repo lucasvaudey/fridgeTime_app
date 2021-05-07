@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.fridgetime.R;
 import com.example.fridgetime.resolvers.Deconnect;
@@ -42,7 +43,7 @@ public class BottomNavigation extends AppCompatActivity {
         jsonObject = deconnect.deconnexion(sharedPreferences.getString(getString(R.string.preference_sessionID_key), null)).get();
         switch (jsonObject.getInt("success")){
             case 0:
-                Log.d("errorrr", "ca ne marche pas");
+                Toast.makeText(this, "Vous ne semblez pas être connecté à internet, réessayez plus tard", Toast.LENGTH_LONG).show();
                 break;
             case 1:
                 //Destruction de  les valeurs stockées dans les sharedPrefs.

@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import com.example.fridgetime.R;
 import com.example.fridgetime.activities.BottomNavigation;
-import com.example.fridgetime.activities.HomePage;
+import com.example.fridgetime.resolvers.IsAuth;
 import com.example.fridgetime.resolvers.RegisterLoginPOST;
 
 import org.json.JSONException;
@@ -56,19 +56,17 @@ public class RegisterLogin extends AppCompatActivity {
         String usernameText = username.getText().toString();
         String emailText = email.getText().toString();
         String passwordText = password.getText().toString();
-        if(emailText.equals("") && !login){
+        if (emailText.equals("") && !login) {
             email.setError("Le champs est vide.");
-        }else
-        if(usernameText.equals("")){
+        } else if (usernameText.equals("")) {
             username.setError("Le champs est vide.");
-        }else
-        if(passwordText.equals("")){
+        } else if (passwordText.equals("")) {
             password.setError("Le champs est vide.");
-        }else {
+        } else {
             JSONObject jsonResponse;
-            if(!login){
+            if (!login) {
                 jsonResponse = registerLoginPOST.register(usernameText, emailText, passwordText).get();
-            }else{
+            } else {
                 jsonResponse = registerLoginPOST.login(usernameText, passwordText).get();
             }
             switch (jsonResponse.getInt("success")) {
@@ -85,6 +83,9 @@ public class RegisterLogin extends AppCompatActivity {
                             break;
                         case "username":
                             username.setError(jsonResponse.getString("message"));
+                            break;
+                        case "internet":
+                            Toast.makeText(this, jsonResponse.getString("message"), Toast.LENGTH_LONG).show();
                             break;
                         case "none":
                             Toast.makeText(this, "Une erreur interne s'est produit veuillez réessayez" +
@@ -106,7 +107,7 @@ public class RegisterLogin extends AppCompatActivity {
 
     public void loginLayout(View view) {
         login = !login;
-        if(login){
+        if (login) {
             email.setVisibility(View.GONE);
             email.setText("");
             password.setText("");
@@ -116,7 +117,7 @@ public class RegisterLogin extends AppCompatActivity {
             username.setHint(R.string.usernameOrEmail);
             buttonChange.setText(R.string.creer_un_compte);
             lorR.setText(R.string.se_connecter);
-        }else{
+        } else {
             email.setVisibility(View.VISIBLE);
             email_title.setVisibility(View.VISIBLE);
             email.setText("");

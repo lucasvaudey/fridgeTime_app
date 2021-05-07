@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.fridgetime.activities.BottomNavigation;
-import com.example.fridgetime.activities.HomePage;
 import com.example.fridgetime.ui.login.RegisterLogin;
 import com.example.fridgetime.resolvers.IsAuth;
 

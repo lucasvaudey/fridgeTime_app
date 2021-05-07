@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.fridgetime">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -16,11 +17,6 @@
             android:name=".activities.BottomNavigation"
             android:label="@string/title_activity_bottom_navigation"
             android:theme="@style/Theme.FridgeTime.NoActionBar">
-        </activity>
-        <activity
-            android:name=".activities.HomePage"
-            android:noHistory="true">
-
         </activity>
         <activity
             android:name=".ui.login.RegisterLogin"
