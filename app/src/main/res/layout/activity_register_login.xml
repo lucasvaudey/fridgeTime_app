@@ -18,7 +18,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email :"
+        android:text="@string/email_title"
         android:id="@+id/email_title"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
@@ -34,12 +34,12 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
-        android:hint="Email :" />
+        android:hint="@string/email_title" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Username :"
+        android:text="@string/username_title"
         android:id="@+id/username_title"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
@@ -55,11 +55,11 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
-        android:hint="Username :" />
+        android:hint="@string/username_title" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mot de passe :"
+        android:text="@string/password_title"
         android:id="@+id/password_title"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
@@ -75,23 +75,24 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
-        android:hint="Mot de passe :" />
+        android:hint="@string/password_title" />
 
     <Button
         android:id="@+id/registerLogin"
         android:layout_width="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:onClick="register"
+        android:onClick="registerLogin"
         android:layout_height="wrap_content"
-        android:text="S'enregistrer" />
+        android:text="@string/s_enregistrer" />
     <Button
         android:id="@+id/alreadyAnAccount"
         android:layout_width="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
+        android:onClick="loginLayout"
         android:layout_height="wrap_content"
-        android:text="Déjà un compte ?" />
+        android:text="@string/changeButton_text" />
 
 </LinearLayout>
 

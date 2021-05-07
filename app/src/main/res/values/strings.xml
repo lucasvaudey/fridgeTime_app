@@ -7,4 +7,12 @@
     <string name="previous">Previous</string>
     <string name="preference_file_key">com.jpp.enculer</string>
     <string name="preference_sessionID_key">sessionID</string>
+    <string name="usernameOrEmail">Username ou E-mail :</string>
+    <string name="se_connecter">Se connecter</string>
+    <string name="creer_un_compte">Créer un compte !</string>
+    <string name="email_title">Email :</string>
+    <string name="username_title">Username :</string>
+    <string name="password_title">Mot de passe :</string>
+    <string name="s_enregistrer">S\'enregistrer</string>
+    <string name="changeButton_text">Déjà un compte ?</string>
 </resources>
