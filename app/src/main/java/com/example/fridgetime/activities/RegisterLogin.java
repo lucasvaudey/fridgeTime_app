@@ -5,13 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import com.example.fridgetime.models.IsAuthGET;
-import com.example.fridgetime.models.RegisterLoginPOST;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.util.Log;
 import android.view.View;
@@ -19,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.fridgetime.R;
+import com.example.fridgetime.resolvers.RegisterLoginPOST;
 
 import org.json.JSONException;
 import org.json.JSONObject;

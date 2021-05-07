@@ -4,14 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import android.view.View;
 
 import com.example.fridgetime.activities.HomePage;
 import com.example.fridgetime.activities.RegisterLogin;
-import com.example.fridgetime.models.IsAuthGET;
+import com.example.fridgetime.resolvers.IsAuth;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,14 +15,11 @@ import org.json.JSONObject;
 import java.net.CookieHandler;
 import java.net.CookieManager;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static IsAuthGET isAuth;
+    private static IsAuth isAuth;
     private static Future<JSONObject> sessionObject;
 
     @Override
@@ -34,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         CookieHandler.setDefault(new CookieManager());
-        isAuth = new IsAuthGET();
+        isAuth = new IsAuth();
         sessionObject = isAuth.getSession(getApplicationContext());
         try {
             if (!sessionObject.get().getString("id").equals("noId")) {
