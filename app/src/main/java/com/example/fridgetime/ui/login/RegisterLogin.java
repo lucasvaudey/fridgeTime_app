@@ -1,4 +1,4 @@
-package com.example.fridgetime.activities;
+package com.example.fridgetime.ui.login;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fridgetime.R;
+import com.example.fridgetime.activities.BottomNavigation;
+import com.example.fridgetime.activities.HomePage;
 import com.example.fridgetime.resolvers.RegisterLoginPOST;
 
 import org.json.JSONException;
@@ -91,7 +93,7 @@ public class RegisterLogin extends AppCompatActivity {
                     }
                     break;
                 case 1:
-                    Intent intent = new Intent(this, HomePage.class);
+                    Intent intent = new Intent(this, BottomNavigation.class);
                     sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("sessionID", jsonResponse.getString("sessionID"));

@@ -13,12 +13,17 @@
         android:theme="@style/Theme.FridgeTime"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activities.BottomNavigation"
+            android:label="@string/title_activity_bottom_navigation"
+            android:theme="@style/Theme.FridgeTime.NoActionBar">
+        </activity>
+        <activity
             android:name=".activities.HomePage"
             android:noHistory="true">
 
         </activity>
         <activity
-            android:name=".activities.RegisterLogin"
+            android:name=".ui.login.RegisterLogin"
             android:label="@string/title_activity_register_login"
             android:noHistory="true"
             android:theme="@style/Theme.FridgeTime.NoActionBar" />
@@ -27,6 +32,7 @@
             android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

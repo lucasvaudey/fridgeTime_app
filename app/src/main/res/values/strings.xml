@@ -15,4 +15,12 @@
     <string name="password_title">Mot de passe :</string>
     <string name="s_enregistrer">S\'enregistrer</string>
     <string name="changeButton_text">Déjà un compte ?</string>
+    <string name="title_activity_bottom_navigation">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="se_deconnecter">Se déconnecter</string>
+    <string name="profil">Profil</string>
+    <string name="saved_recipes">Recettes</string>
+    <string name="flux">Flux</string>
 </resources>

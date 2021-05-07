@@ -5,8 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.fridgetime.activities.BottomNavigation;
 import com.example.fridgetime.activities.HomePage;
-import com.example.fridgetime.activities.RegisterLogin;
+import com.example.fridgetime.ui.login.RegisterLogin;
 import com.example.fridgetime.resolvers.IsAuth;
 
 import org.json.JSONException;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             if (!sessionObject.get().getString("id").equals("noId")) {
                 Intent intent = new Intent(MainActivity.this,
-                        HomePage.class);
+                        BottomNavigation.class);
                 startActivity(intent);
             } else {
                 Intent intent = new Intent(MainActivity.this,
