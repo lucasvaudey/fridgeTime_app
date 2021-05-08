@@ -17,6 +17,12 @@
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_saved_recipes" />
 
+    <fragment android:id="@+id/navigation_fridge"
+        android:name="com.example.fridgetime.ui.fridge.FridgeFragment"
+        android:label="Fridge"
+        tools:layout="@layout/fridge_fragment"
+        />
+
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.fridgetime.ui.settings.ProfileFragment"

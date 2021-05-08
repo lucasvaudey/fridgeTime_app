@@ -11,6 +11,11 @@
         android:icon="@drawable/ic_bookmark_24dp"
         android:title="@string/saved_recipes" />
 
+    <item android:id="@+id/navigation_fridge"
+        android:icon="@drawable/ic_fridge_24dp"
+        android:title="@string/frigo"
+        />
+
     <item
         android:id="@+id/navigation_notifications"
         android:icon="@drawable/ic_profile"

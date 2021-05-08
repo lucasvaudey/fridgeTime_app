@@ -14,7 +14,7 @@ import java.util.concurrent.Future;
 public class Deconnect {
     private static final JSONParser jsonParser = new JSONParser();
     private JSONObject response;
-    private static final String REQUEST_URL = "http://192.168.1.25/~lucas/fridgeTime_serv/deconnect.php";
+    private static final String REQUEST_URL = "http://192.168.9.169/~lucas/fridgeTime_serv/deconnect.php";
     private IsAuth isAuth;
 
     public Future<JSONObject> deconnexion(String sessionID) {

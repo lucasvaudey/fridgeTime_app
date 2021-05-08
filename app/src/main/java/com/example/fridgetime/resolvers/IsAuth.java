@@ -21,7 +21,7 @@ import java.util.concurrent.Future;
 public class IsAuth {
 
     private static final JSONParser jsonParser = new JSONParser();
-    private static final String REQUEST_URL = "http://192.168.1.25/~lucas/fridgeTime_serv/isAuth.php";
+    private static final String REQUEST_URL = "http://192.168.9.169/~lucas/fridgeTime_serv/isAuth.php";
     private JSONObject response;
     private SharedPreferences sharedPreferences;
 

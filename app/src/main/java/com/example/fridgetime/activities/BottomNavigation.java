@@ -58,4 +58,7 @@ public class BottomNavigation extends AppCompatActivity {
     }
 
 
+    public void addElement(View view) {
+        //TODO: addElement
+    }
 }
