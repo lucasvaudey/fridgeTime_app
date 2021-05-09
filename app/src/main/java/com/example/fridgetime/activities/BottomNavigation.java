@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.fridgetime.R;
 import com.example.fridgetime.resolvers.Deconnect;
+import com.example.fridgetime.resolvers.FridgeResolver;
 import com.example.fridgetime.ui.login.RegisterLogin;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -36,12 +37,13 @@ public class BottomNavigation extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(navView, navController);
     }
+
     public void disconnect(View view) throws ExecutionException, InterruptedException, JSONException {
         SharedPreferences sharedPreferences = this.getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         Deconnect deconnect = new Deconnect();
         JSONObject jsonObject;
         jsonObject = deconnect.deconnexion(sharedPreferences.getString(getString(R.string.preference_sessionID_key), null)).get();
-        switch (jsonObject.getInt("success")){
+        switch (jsonObject.getInt("success")) {
             case 0:
                 Toast.makeText(this, "Vous ne semblez pas être connecté à internet, réessayez plus tard", Toast.LENGTH_LONG).show();
                 break;
@@ -58,7 +60,20 @@ public class BottomNavigation extends AppCompatActivity {
     }
 
 
-    public void addElement(View view) {
-        //TODO: addElement
+    public void addElement(View view) throws ExecutionException, InterruptedException, JSONException {
+        SharedPreferences sharedPreferences = this.getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        FridgeResolver fridgeResolver = new FridgeResolver();
+        JSONObject jsonObject;
+        jsonObject = fridgeResolver.getFridgeData(sharedPreferences.getString(getString(R.string.preference_sessionID_key), null)).get();
+        switch (jsonObject.getInt("noFridge")){
+            case 0:
+                Toast.makeText(this, "ECHEC !", Toast.LENGTH_LONG).show();
+                break;
+            case 1:
+                Toast.makeText(this, "Success !", Toast.LENGTH_LONG).show();
+                break;
+        }
+
+
     }
 }
